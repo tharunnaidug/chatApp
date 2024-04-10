@@ -1,13 +1,13 @@
-import path from'path';
+import path from 'path';
 import express from 'express';
 import { config } from 'dotenv';
 import { connetDb } from './db/connecttodb.js';
-import  authroutes from './routes/auth.routes.js';
-import  msgroutes from './routes/msg.routes.js';
-import  userroutes from './routes/user.routes.js';
+import authroutes from './routes/auth.routes.js';
+import msgroutes from './routes/msg.routes.js';
+import userroutes from './routes/user.routes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
-import { app,server } from './socket/socket.js';
+import { app, server } from './socket/socket.js';
 
 
 const __dirname=path.resolve()
