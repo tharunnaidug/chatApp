@@ -9,3 +9,4 @@ export const connetDb=async ()=>{
         console.log("There was Some Problem conneting to DB ",error )
     }
 }
+export default connetDb;
