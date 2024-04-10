@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import { config } from 'dotenv';
-import { connetDb } from './db/connecttodb.js';
+import connetDb from './db/connecttodb.js';
 import authroutes from './routes/auth.routes.js';
 import msgroutes from './routes/msg.routes.js';
 import userroutes from './routes/user.routes.js';
