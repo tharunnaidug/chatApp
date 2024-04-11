@@ -8,6 +8,7 @@ import userroutes from './routes/user.routes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import { app, server } from './socket/socket.js';
+import mongoose from "mongoose";
 
 
 const __dirname=path.resolve()
@@ -38,7 +39,6 @@ app.use(express.static(path.join(__dirname,'/frontend/dist')));
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"frontend","dist","index.html"))
 })
-import mongoose from "mongoose";
 
 const connetDb=async ()=>{
 
@@ -51,6 +51,6 @@ const connetDb=async ()=>{
 }
 
 server.listen(port, () => { 
-    connetDb()
+    await connetDb()
     console.log(`Listening on Port :${port}`)
 })
