@@ -16,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (authUser) {
-            const socket = io('http://localhost:3000',{
+            const socket = io('https://chatapp-h0mo.onrender.com',{//replacing according to deploy or dev
                 query:{
                     userId:authUser._id, 
                 }
