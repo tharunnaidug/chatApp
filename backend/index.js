@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import { config } from 'dotenv';
-import connetDb from './db/connecttodb.js';
+//import connetDb from './db/connecttodb.js';
 import authroutes from './routes/auth.routes.js';
 import msgroutes from './routes/msg.routes.js';
 import userroutes from './routes/user.routes.js';
@@ -38,6 +38,17 @@ app.use(express.static(path.join(__dirname,'/frontend/dist')));
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"frontend","dist","index.html"))
 })
+import mongoose from "mongoose";
+
+const connetDb=async ()=>{
+
+    try {
+      await  mongoose.connect(process.env.MONGODB_URL)
+        console.log("Connected to DB")
+    } catch (error) {
+        console.log("There was Some Problem conneting to DB ",error )
+    }
+}
 
 server.listen(port, () => { 
     connetDb()
