@@ -51,6 +51,6 @@ const connetDb=async ()=>{
 }
 
 server.listen(port, () => { 
-    await connetDb()
+    connetDb()
     console.log(`Listening on Port :${port}`)
 })
