@@ -8,7 +8,7 @@ const userSendMessage = () => {
 
     const sendMessage = async (message) => {
         try {
-            const res = await fetch(`http://localhost:3000/msg/send/${selectedConversation._id}`, {
+            const res = await fetch(`/msg/send/${selectedConversation._id}`, {
                 method: "POST",
                 credentials: "include",
                 headers: { 'Content-Type': "application/json", },
