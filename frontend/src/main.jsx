@@ -6,15 +6,18 @@ import { BrowserRouter, HashRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import { SocketContextProvider } from './context/SocketContext.jsx'
+import { PeerProvider } from './context/Peer.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter >
-      <AuthContextProvider>
-        <SocketContextProvider>
-          <App />
-        </SocketContextProvider>
-      </AuthContextProvider>
+      <PeerProvider>
+        <AuthContextProvider>
+          <SocketContextProvider>
+            <App />
+          </SocketContextProvider>
+        </AuthContextProvider>
+      </PeerProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

@@ -3,16 +3,18 @@ import Messages from './Messages'
 import Messageinp from './Messageinp'
 import userConversation from '../../zustand/userConverstion'
 import { useAuthContext } from '../../context/AuthContext'
+import { useHandleVC } from "../../hooks/handleVideoCall";
 
 const Messagecon = () => {
   const { selectedConversation, setSelectedConversation } = userConversation()
-  
+  const handleVC = useHandleVC();
+
   // useEffect(()=>{
   //   return()=>setSelectedConversation(null)
   // },[selectedConversation]);
   
   return (
-    <div className='md:min-w-[450px] flex flex-col'>
+    <div className='md:min-w-[450px] flex flex-col mc'>
       {!selectedConversation ? (
         <NoChatSel />
       ) : (
@@ -20,6 +22,7 @@ const Messagecon = () => {
           <div className="px-4 py-2 mb-2 bg-zinc-200">
             <span className="label-text text-rose-500 text-lg">To: </span>
             <span className="font-bold text-green-700 text-xl">{selectedConversation.name}</span>
+            <span>{selectedConversation.name ?(<button className='ml-3 bg-green-200 text-black' onClick={handleVC}> VC</button>):(<p> Not Online</p> )}</span>
           </div>
           <Messages />
           <Messageinp />
